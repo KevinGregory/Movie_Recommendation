@@ -15,7 +15,8 @@ class DataLoader:
         # Ensure the dataset_name is a valid DatasetName enum member
         if dataset_name in DatasetName.__members__:
             dataset_enum = DatasetName[dataset_name]
-            self.data = pd.read_csv(DATASET_PATHS[dataset_enum])
+            self.data = pd.read_csv(DATASET_PATHS[dataset_enum]).astype(str)
+            
         else:
             raise ValueError(f"{dataset_name} is not a valid dataset name")
 

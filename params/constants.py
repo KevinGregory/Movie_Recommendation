@@ -12,7 +12,7 @@ class DatasetName(Enum):
     
     
 DATASET_PATHS = {
-    DatasetName.ml_genome_scores: "/Users/kevingregory/Desktop/programs/kaggle_data/movie_lens/genome-tags.csv",
+    DatasetName.ml_genome_scores: "/Users/kevingregory/Desktop/programs/kaggle_data/movie_lens/genome-scores.csv",
     DatasetName.ml_genome_tags: "/Users/kevingregory/Desktop/programs/kaggle_data/movie_lens/genome-tags.csv",
     DatasetName.ml_links: "/Users/kevingregory/Desktop/programs/kaggle_data/movie_lens/links.csv",
     DatasetName.ml_movies: "/Users/kevingregory/Desktop/programs/kaggle_data/movie_lens/movies.csv",
