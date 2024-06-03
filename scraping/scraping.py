@@ -28,14 +28,12 @@ def open_page(url: str,
 def get_review_url(imdbId :str)->str:
     return "https://www.imdb.com/title/tt0"+imdbId+"/reviews?sort=totalVotes&dir=desc&ratingFilter=0"
 
-# def get_review_url(soup: BeautifulSoup) -> str:
-#     section = soup.find('section', {'data-testid': 'UserReviews'})
-#     if section:
-#         a_tag = section.find('a')
-        
-#         if a_tag:
-#             return "https://www.imdb.com" + a_tag['href']
-#         else:
-#             return "Hyperlink not found within the specified section."
-#     else:
-#         return "Section with the specified data-testid not found."
+def get_reviews(imdb_id: str):
+    url = get_review_url(imdb_id)
+    soup = open_page(url)
+    reviews = []
+    for review in soup.find_all("div", class_="lister-item-content"):
+        reviews.append(review.find("div", class_="text show-more__control").text)
+    review_dict = {}
+    review_dict[imdb_id] = reviews
+    return review_dict
